@@ -17,26 +17,27 @@
     <parent>
         <groupId>org.apache.nifi</groupId>
         <artifactId>nifi-streaming-json-recordreader-bundle</artifactId>
-        <version>1.8.0</version>
+        <version>${revision}</version>
     </parent>
     <artifactId>nifi-streaming-json-recordreader-nar</artifactId>
-    <version>1.8.0</version>
+    <version>${revision}</version>
     <packaging>nar</packaging>
     <properties>
         <maven.javadoc.skip>true</maven.javadoc.skip>
+        <revision>1.14.0</revision>
         <source.skip>true</source.skip>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.apache.nifi</groupId>
             <artifactId>nifi-standard-services-api-nar</artifactId>
-            <version>1.8.0</version>
+            <version>${revision}</version>
             <type>nar</type>
         </dependency>
         <dependency>
             <groupId>org.apache.nifi</groupId>
             <artifactId>nifi-streaming-json-recordreader</artifactId>
-            <version>1.8.0</version>
+            <version>${revision}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
@@ -50,4 +51,13 @@
             </plugin>
       </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>1.13</id>
+            <properties>
+                <revision>1.13.2</revision>
+            </properties>
+        </profile>
+    </profiles>
 </project>

@@ -76,8 +76,13 @@ public class StreamingJsonReader extends SchemaRegistryService implements Record
         this.jsonPath = context.getProperty(JSON_PATH).getValue();
     }
 
+//    @Override
+//    public RecordReader createRecordReader(Map<String, String> variables, InputStream in, ComponentLog logger) throws MalformedRecordException, IOException, SchemaNotFoundException {
+//        return new StreamingJsonRowRecordReader(jsonPath, getSchema(variables, in, null), in, logger, dateFormat, timeFormat, timestampFormat);
+//    }
+
     @Override
-    public RecordReader createRecordReader(Map<String, String> variables, InputStream in, ComponentLog logger) throws MalformedRecordException, IOException, SchemaNotFoundException {
-        return new StreamingJsonRowRecordReader(jsonPath, getSchema(variables, in, null), in, logger, dateFormat, timeFormat, timestampFormat);
+    public RecordReader createRecordReader(Map<String, String> map, InputStream inputStream, long l, ComponentLog componentLog) throws MalformedRecordException, IOException, SchemaNotFoundException {
+        return new StreamingJsonRowRecordReader(jsonPath, getSchema(map, inputStream, null), inputStream, componentLog, dateFormat, timeFormat, timestampFormat);
     }
 }

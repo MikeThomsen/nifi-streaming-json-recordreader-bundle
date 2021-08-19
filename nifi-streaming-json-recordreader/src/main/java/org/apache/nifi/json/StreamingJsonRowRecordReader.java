@@ -104,7 +104,6 @@ public class StreamingJsonRowRecordReader implements RecordReader {
         try {
             return convertJsonNodeToRecord(node, schema, coerceTypes, dropUnknownFields);
         } catch (Exception e) {
-            logger.error("Error", e);
             throw new ProcessException(e);
         }
     }

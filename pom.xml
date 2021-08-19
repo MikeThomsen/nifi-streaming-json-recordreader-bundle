@@ -17,11 +17,24 @@
     
     <artifactId>nifi-streaming-json-recordreader-bundle</artifactId>
     <groupId>org.apache.nifi</groupId>
-    <version>1.8.0</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
-    
+
+    <properties>
+        <revision>1.14.0</revision>
+    </properties>
+
     <modules>
         <module>nifi-streaming-json-recordreader</module>
         <module>nifi-streaming-json-recordreader-nar</module>
     </modules>
+
+    <profiles>
+        <profile>
+            <id>1.13</id>
+            <properties>
+                <revision>1.13.2</revision>
+            </properties>
+        </profile>
+    </profiles>
 </project>
